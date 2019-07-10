@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import "./index.css";
+import { getRandomJoke } from './api';
+import DadJokeButton from './components/DadJokeButton';
+import DadJoke from './components/DadJoke';
 
 function App() {
+  const [dadJoke, setDadJoke] = useState(
+    ''
+  );
+  const fetchRandomJoke = async () => {
+    const joke = await getRandomJoke();
+    setDadJoke(joke)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container mx-auto h-screen flex items-center justify-start">
+      <div className="">
+        <DadJoke joke={dadJoke}></DadJoke>
+        <DadJokeButton callback={fetchRandomJoke}></DadJokeButton>
+      </div>
     </div>
   );
 }
