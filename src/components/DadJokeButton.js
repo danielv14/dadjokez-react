@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 function DadJokeButton({ callback }) {
   return (
@@ -7,5 +8,9 @@ function DadJokeButton({ callback }) {
     </button>
   );
 }
+
+DadJokeButton.propTypes = {
+  callback: propTypes.func,
+};
 
 export default DadJokeButton;

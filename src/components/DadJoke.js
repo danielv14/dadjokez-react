@@ -1,6 +1,8 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
-function DadJokeButton({ joke }) {
+
+function DadJoke({ joke }) {
   return (
     <p className="p-2 font-medium text-lg">
       {joke}
@@ -8,4 +10,8 @@ function DadJokeButton({ joke }) {
   );
 }
 
-export default DadJokeButton;
+DadJoke.propTypes = {
+  joke: propTypes.string,
+};
+
+export default DadJoke;
