@@ -5,16 +5,14 @@ import DadJokeButton from './components/DadJokeButton';
 import DadJoke from './components/DadJoke';
 
 function App() {
-  const [dadJoke, setDadJoke] = useState(
-    ''
-  );
+  const [dadJoke, setDadJoke] = useState('');
   const fetchRandomJoke = async () => {
     const joke = await getRandomJoke();
     setDadJoke(joke)
   }
   return (
     <div className="container mx-auto h-screen flex items-center justify-start">
-      <div className="">
+      <div>
         <DadJoke joke={dadJoke}></DadJoke>
         <DadJokeButton callback={fetchRandomJoke}></DadJokeButton>
       </div>
